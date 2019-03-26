@@ -4,30 +4,34 @@
         <!--这是顶部header区域-->
         <mt-header fixed title="黑马vue项目"></mt-header>
         <!--这是中间路由router-view区域-->
+		<!--组件切换时的动画效果transition:过渡，转变-->
+		<transition>
+			<router-view></router-view>
+		</transition>
+		
 
         <!--这是底部tabbar区域-->
         <nav class="mui-bar mui-bar-tab">
-			<a class="mui-tab-item mui-active" href="#tabbar">
+			<router-link class="mui-tab-item" to="/home">
 				<span class="mui-icon mui-icon-home"></span>
 				<span class="mui-tab-label">首页</span>
-			</a>
-			<a class="mui-tab-item" href="#tabbar-with-chat">
-				<span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
-				<span class="mui-tab-label">消息</span>
-			</a>
-			<a class="mui-tab-item" href="#tabbar-with-contact">
+			</router-link>
+			<router-link class="mui-tab-item" to="/member">
 				<span class="mui-icon mui-icon-contact"></span>
-				<span class="mui-tab-label">通讯录</span>
-			</a>
-			<a class="mui-tab-item" href="#tabbar-with-map">
-				<span class="mui-icon mui-icon-gear"></span>
-				<span class="mui-tab-label">设置</span>
-			</a>
+				<span class="mui-tab-label">会员</span>
+			</router-link>
+			<router-link class="mui-tab-item" to="/shopcar">
+				<span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge">0</span></span>
+				<span class="mui-tab-label">购物车</span>
+			</router-link>
+			<router-link class="mui-tab-item" to="/search">
+				<span class="mui-icon mui-icon-search"></span>
+				<span class="mui-tab-label">搜索</span>
+			</router-link>
 		</nav>
 
 
-        <!--这是容器-->
-        <h1>这是 APP 组件</h1>
+        
     </div>
 </template>
 
@@ -39,5 +43,20 @@
 
 .app-container{
     padding-top: 40px;
+	overflow: hidden;
+}
+
+
+.v-enter{
+	opacity: 0;
+	transform: translateX(100%);
+}
+.v-leave-to{
+	opacity: 0;
+	transform: translateX(100%);
+	position: absolute;
+}
+.v-leave-active.v-enter-active{
+	transition: all 0.5s ease;
 }
 </style>
