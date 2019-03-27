@@ -4,7 +4,7 @@
         <h3 class="title">{{newsinfo.title}}</h3>
         <p class="subtitle">
 
-            <span>发表时间：{{newsinfo.add_time | dataFormat}}</span>
+            <span>发表时间：{{newsinfo.add_time | dateFormat}}</span>
             <span>点击：{{newsinfo.click}}次</span>
         </p>
         <hr>

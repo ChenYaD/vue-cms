@@ -8,12 +8,23 @@ import app from './App.vue';
 import './lib/mui/css/mui.min.css';
 import './lib/mui/css/icons-extra.css';
 
-//按需导入mint-ui 头部组件
-import { Header,Swipe, SwipeItem,Button} from 'mint-ui';
-Vue.component(Header.name, Header);
-Vue.component(Swipe.name, Swipe);
-Vue.component(SwipeItem.name, SwipeItem);
-Vue.component(Button.name,Button);
+//按需导入mint-ui 头部组件(懒加载时必须全部导入)
+// import { Header,Swipe, SwipeItem,Button} from 'mint-ui';
+// Vue.component(Header.name, Header);
+// Vue.component(Swipe.name, Swipe);
+// Vue.component(SwipeItem.name, SwipeItem);
+// Vue.component(Button.name,Button);
+//导入懒加载
+// import { Lazyload } from 'mint-ui';
+// Vue.use(Lazyload);
+// import MintUI from 'mint-ui';
+//全部导入
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
+Vue.use(MintUI);
+
+
+
 
 //导入vue-resource
 import VueResouce from 'vue-resource';
@@ -31,6 +42,9 @@ Vue.filter('dateFormat', function(dataStr, pattern = 'YYYY-MM-DD HH:mm:ss'){
     return moment(dataStr).format(pattern);
 })
 
+//导入缩略图组件,一个Vue集成PhotoSwipe的图片预览插件
+import VuePreview from 'vue2-preview';
+Vue.use(VuePreview);
 
 //导入路由的包
 import VueRouter from 'vue-router';
