@@ -2,13 +2,7 @@
     <div>
 
         <!--首页轮播图-->
-        <mt-swipe :auto="4000">
-        <!--在组件中使用v-for循环时，一定要加key v-bind 绑定-->
-        <mt-swipe-item v-for="item in lunbotuList" :key="item.img">
-            <img :src="item.img" alt="">
-        </mt-swipe-item>
-        
-        </mt-swipe>
+       <swiper :lunbotuList="lunbotuList" :isfull="true"></swiper>
 
 
         <!--六宫格-->
@@ -43,6 +37,7 @@
 </template>
 <script>
 import {Toast} from 'mint-ui';
+import swiper from '../subcomponents/swiper.vue';
 export default{
     data(){
         return {
@@ -65,6 +60,9 @@ export default{
              });
         }
     },
+    components: {
+        swiper
+    }
 
 
 }
